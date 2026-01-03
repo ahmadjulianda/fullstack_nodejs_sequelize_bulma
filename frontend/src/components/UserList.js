@@ -15,6 +15,14 @@ const UserList = () => {
   };
 
   const deleteUser = async (id) => {
+    const isConfirmed = window.confirm(
+      "Are you sure want to permanently delete this data?"
+    );
+    
+    if (!isConfirmed) {
+      return;  // jika klik "Cancel"
+    }
+    
     try {
       await axios.delete(`http://localhost:5000/users/${id}`);
       getUsers();
