@@ -15,6 +15,7 @@ const UserList = () => {
   };
 
   const deleteUser = async (id) => {
+    //kode untuk menambahkan notif konfirmasi sebelum data dihapus
     const isConfirmed = window.confirm(
       "Are you sure want to permanently delete this data?"
     );
@@ -23,6 +24,7 @@ const UserList = () => {
       return;  // jika klik "Cancel"
     }
     
+    // kode untuk menjalankan fungsi delete
     try {
       await axios.delete(`http://localhost:5000/users/${id}`);
       getUsers();
